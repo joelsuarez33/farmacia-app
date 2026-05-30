@@ -26,25 +26,6 @@ git remote add origin https://github.com/TU_USUARIO/farmacia-app.git
 git push -u origin main
 ```
 
-### 2. Secrets en Streamlit Cloud
-En https://share.streamlit.io → tu app → Settings → Secrets, pegar:
-
-```toml
-[gcp_service_account]
-type = "service_account"
-project_id = "farmacity-onboarding"
-private_key_id = "TU_PRIVATE_KEY_ID"
-private_key = "-----BEGIN RSA PRIVATE KEY-----\n...\n-----END RSA PRIVATE KEY-----\n"
-client_email = "farmacity-onboarding@farmacity-onboarding.iam.gserviceaccount.com"
-client_id = "117343408442087774110"
-auth_uri = "https://accounts.google.com/o/oauth2/auth"
-token_uri = "https://oauth2.googleapis.com/token"
-auth_provider_x509_cert_url = "https://www.googleapis.com/oauth2/v1/certs"
-client_x509_cert_url = "https://www.googleapis.com/robot/v1/metadata/x509/farmacity-onboarding%40farmacity-onboarding.iam.gserviceaccount.com"
-```
-
-### 3. Nombre de la pestaña del Sheet
-En app.py, línea `SHEET_NAME = "Hoja1"`, reemplazar por el nombre real de la pestaña.
 
 ## Actualizar el vademécum
 Editar directamente el Google Sheet. La app refresca el cache cada 1 hora.
