@@ -265,25 +265,131 @@ with tab1:
                 render_drug_card(row)
 
 # ════════════════════════════════════════════════════════════════════════════
-# TAB 2 — OBRAS SOCIALES (Fase 1: PDF estático)
+# TAB 2 — OBRAS SOCIALES
 # ════════════════════════════════════════════════════════════════════════════
+ 
+# ── Datos hardcodeados del manual operativo ──────────────────────────────────
+OS_DATA = {
+    "🏷️ Tipos de venta": {
+        "icono": "🏷️",
+        "items": [
+            ("B — Particular", "Venta directa al público sin cobertura."),
+            ("A — Obra social", "Con cobertura de obra social. Requiere receta y credencial."),
+            ("C — PAMI", "Cobertura PAMI. Ver procedimiento específico."),
+            ("D — Vale", "Producto reservado, ya pagado. Retirar con número de vale."),
+            ("R — Reserva", "Producto apartado para el cliente."),
+            ("G — Servicio de salud", "Enfermería, diabetes, oximetría, etc."),
+        ]
+    },
+    "🧪 Laboratorios y colores": {
+        "icono": "🧪",
+        "items": [
+            ("Montpellier", "Verde y blanco. Ej: T4."),
+            ("Glaxo Smith (GSK)", "Levotiroxinas con muchos colores. Se encuentran en la letra L."),
+            ("Roemmers", "Amarillo. Ej: Amoxidal."),
+            ("Elea", "Blanco y azul claro. Ej: Cronopen."),
+            ("Raffo", "Blanco y bordo. Ej: Alpertan."),
+            ("Casasco", "Blanco y rojo. Ej: Isobloc."),
+            ("Pfizer", "Blanco con franja azul y celeste. Ej: Trapax."),
+            ("Lepetit", "Blanco, naranja y verde. Ej: Vedilep, Normolipol, Rosux."),
+            ("Craveri", "Rojo."),
+            ("Bagó", "Violeta."),
+        ]
+    },
+    "🗄️ Ubicación en farmacia": {
+        "icono": "🗄️",
+        "items": [
+            ("Psicotrópicos", "Cajoneras del lado izquierdo, ordenadas alfabéticamente. La caja debe decir 'Venta bajo receta archivada'."),
+            ("Oftálmicos", "Primeras 3 cajoneras en la columna de la V."),
+            ("Medicamentos con + naranja", "Tienen vademécum TUF o descuento de laboratorio aplicable."),
+        ]
+    },
+    "❓ Preguntas clave en mostrador": {
+        "icono": "❓",
+        "items": [
+            ("Preguntas generales", "¿Qué necesitás? / ¿De qué dosis? / ¿Por cuántos comprimidos? / ¿Por obra social o particular? / ¿Necesitás que te lo realice para reintegro?"),
+            ("Ibuprofeno", "¿Lo llevás en cápsulas o comprimidos? ¿De cuánto?"),
+            ("Diclofenac", "¿Sos hipertenso? Si sí → dispensar potásico."),
+            ("Antigripal (Qura Plus)", "¿Sos hipertenso?"),
+        ]
+    },
+    "💳 TU Farmacity (TUF)": {
+        "icono": "💳",
+        "items": [
+            ("¿Cómo aplicarlo?", "Siempre preguntar si tiene TU Farmacity. Pedir DNI, cargar en punto de venta → Agregar cobertura → Vademécum TUF. No sacar troquel."),
+            ("¿Qué decirle al cliente?", "Explicar el beneficio. Ej: 'Te sale con el 20% de descuento, ahorrás $15.000'."),
+            ("Cliente sin TUF", "Hay un cartel con QR en el mostrador para que se adhiera en el momento."),
+            ("Identificación visual", "Productos con TUF tienen un + naranja en la etiqueta."),
+        ]
+    },
+    "📦 Vales": {
+        "icono": "📦",
+        "items": [
+            ("Retirar un vale", "Punto de venta → Vale → ingresar número de vale (extremo derecho del papel). Buscar en cajonera chica Vale por orden alfabético. Sacar el papel pegado en el medicamento y entregar el papel que se imprime. El cliente lo entrega al personal de seguridad al salir."),
+            ("Pedir un vale", "Buscar el medicamento → seleccionarlo → marcar en la etiqueta → colocar nombre del cliente o teléfono. Antes de imprimir el remito, verificar stock en droguería (Del Sud o Barracas)."),
+            ("Verificar stock", "Página Suizzo / Del Sud: buscar, ver stock, confirmar. Si supera $600k consultar con el auxiliar farmacéutico. Si no está en una droguería, buscar en la otra. Si no está en ninguna → derivar a otro Farmacity."),
+            ("Ver stock interno", "Punto de venta → buscar medicamento → F4 → Farm Amigas → Favoritos → Ver stock."),
+            ("Horarios de retiro", "Vale pedido a la mañana (9-10 hs): disponible desde las 19 hs del mismo día. Vale pedido a las 18 hs: disponible al día siguiente desde las 15 hs."),
+        ]
+    },
+    "🏥 Obras sociales — operatoria general": {
+        "icono": "🏥",
+        "items": [
+            ("¿Cómo cargar una OS?", "Punto de venta → Agregar cobertura → nombre de la OS (Galeno, OSDE, Swiss Medical, etc.). Ver la información al lado de cada OS para despejar dudas."),
+            ("Receta en papel", "Verificar fecha de validez, legibilidad de matrícula, tinta uniforme. Ante cualquier duda consultar a un compañero."),
+            ("Receta digital", "Entrar por Reservorio → escanear número de afiliado → escanear número de receta."),
+            ("Ejemplo: Galeno", "Escanear afiliado y receta → buscar medicamento → solicitar token → firmar el papel."),
+        ]
+    },
+    "💰 Descuentos de laboratorios": {
+        "icono": "💰",
+        "items": [
+            ("¿Cómo aplicar?", "Punto de venta → Agregar cobertura → buscar el laboratorio. Ej: PANALAB."),
+            ("Panalab — 40% descuento", "Cajas blancas con rayas de color. Ej: Folcres, Valcatil Max, Dutapil, Combinater, Terekol, Ribatra. El paciente puede traer cupón o no. Cargar: descuento Panalab papel → escanear cupón + matrícula + fecha. Copiar el número que empieza con 55555 y colocar fecha del cupón. No sacar troquel."),
+            ("Cepage / Eximia", "Productos de cosmética en el mueble detrás del mostrador. Agregar cobertura → descuento bono Eximia/Cepage → OK → escanear → sacar troquel → imprimir voucher. Enviar voucher por WhatsApp al 1141610510 o al celular viejo: 1144499024."),
+        ]
+    },
+    "🩺 Servicio de enfermería": {
+        "icono": "🩺",
+        "items": [
+            ("¿Cómo facturar?", "Por el punto de venta de farmacia."),
+            ("Servicios disponibles", "Presión arterial / Servicio de diabetes (con o sin insumos) / Aplicación / Oximetría / Índice de masa corporal / Asesoramiento en nebulizadores."),
+        ]
+    },
+}
+ 
 with tab2:
-    st.markdown("### 📋 Guía de Obras Sociales")
-    st.info(
-        "Próximamente: resúmenes por obra social y descarga de procedimientos. "
-        "Por ahora podés descargar la guía general."
-    )
-
+    st.markdown("### 📋 Procedimientos operativos")
+ 
+    for titulo, contenido in OS_DATA.items():
+        with st.expander(titulo):
+            for nombre, detalle in contenido["items"]:
+                st.markdown(
+                    f"""
+                    <div style="
+                        border-left: 3px solid #3b82f6;
+                        padding: 8px 12px;
+                        margin-bottom: 10px;
+                        border-radius: 0 8px 8px 0;
+                        background: var(--background-color);
+                    ">
+                        <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 3px;">{nombre}</div>
+                        <div style="font-size: 0.85rem; color: #555; line-height: 1.5;">{detalle}</div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
+ 
+    # PDF descargable cuando esté disponible
     import os
     pdf_path = "assets/guia_OS_general.pdf"
     if os.path.exists(pdf_path):
+        st.divider()
         with open(pdf_path, "rb") as f:
             st.download_button(
-                label="📥 Descargar guía general de Obras Sociales",
+                label="📥 Descargar guía completa de Obras Sociales (PDF)",
                 data=f,
                 file_name="guia_OS_general.pdf",
                 mime="application/pdf",
                 use_container_width=True,
             )
-    else:
-        st.warning("Guía general de OS no disponible aún. Próximamente.")
