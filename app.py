@@ -188,7 +188,7 @@ def render_drug_card(row: pd.Series):
 # ── UI principal ─────────────────────────────────────────────────────────────
 st.title("💊 Guía de Mostrador")
 
-tab1, tab2 = st.tabs(["Vademécum", "Obras Sociales"])
+tab1, tab2 = st.tabs(["Vademécum", "Manual de dispensa"])
 
 # ════════════════════════════════════════════════════════════════════════════
 # TAB 1 — VADEMÉCUM
@@ -265,7 +265,7 @@ with tab1:
                 render_drug_card(row)
 
 # ════════════════════════════════════════════════════════════════════════════
-# TAB 2 — OBRAS SOCIALES
+# TAB 2 — Manual de dispensa
 # ════════════════════════════════════════════════════════════════════════════
  
 # ── Datos hardcodeados del manual operativo ──────────────────────────────────
@@ -307,10 +307,12 @@ OS_DATA = {
     "❓ Preguntas clave en mostrador": {
         "icono": "❓",
         "items": [
-            ("Preguntas generales", "¿Qué necesitás? / ¿De qué dosis? / ¿Por cuántos comprimidos? / ¿Por obra social o particular? / ¿Necesitás que te lo realice para reintegro?"),
+            ("Preguntas generales", "¿Qué necesitás? / ¿De qué dosis? / ¿Por cuántos comprimidos? / ¿Por obra social o particular? / ¿Necesitás que te lo realice para reintegro? / ¿Necesitás  algo mas? "),
             ("Ibuprofeno", "¿Lo llevás en cápsulas o comprimidos? ¿De cuánto?"),
             ("Diclofenac", "¿Sos hipertenso? Si sí → dispensar potásico."),
             ("Antigripal (Qura Plus)", "¿Sos hipertenso?"),
+            ("Medicamentos de venta libre o suplementos dietarios", "Acompañanar a la gondola a buscarlo."),
+            ("Preguntas por gazas, solucion fisiologica, vaselina", "Decir que se encuentran en lo gondola de primeros auxilios."),
         ]
     },
     "💳 TU Farmacity (TUF)": {
@@ -345,7 +347,7 @@ OS_DATA = {
         "icono": "💰",
         "items": [
             ("¿Cómo aplicar?", "Punto de venta → Agregar cobertura → buscar el laboratorio. Ej: PANALAB."),
-            ("Panalab — 40% descuento", "Cajas blancas con rayas de color. Ej: Folcres, Valcatil Max, Dutapil, Combinater, Terekol, Ribatra. El paciente puede traer cupón o no. Cargar: descuento Panalab papel → escanear cupón + matrícula + fecha. Copiar el número que empieza con 55555 y colocar fecha del cupón. No sacar troquel."),
+            ("Panalab — 40% descuento", "Cajas blancas con rayas de color. Ej: Folcres, Valcatil Max, Dutapil, Combinater, Terekol, Ribatra. El paciente puede traer cupón o no. Si trae cupon → Cargar: descuento Panalab papel → escanear cupón + matrícula + fecha. Si no trae cupon → Copiar el número que empieza con 5... y como numero de matricula 5555 y colocar fecha del dia de dispensa. No sacar troquel."),
             ("Cepage / Eximia", "Productos de cosmética en el mueble detrás del mostrador. Agregar cobertura → descuento bono Eximia/Cepage → OK → escanear → sacar troquel → imprimir voucher. Enviar voucher por WhatsApp al 1141610510 o al celular viejo: 1144499024."),
         ]
     },
