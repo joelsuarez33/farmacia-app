@@ -284,16 +284,16 @@ OS_DATA = {
     "🧪 Laboratorios y colores": {
         "icono": "🧪",
         "items": [
-            ("Montpellier", "Verde y blanco. Ej: T4."),
-            ("Glaxo Smith (GSK)", "Levotiroxinas con muchos colores. Se encuentran en la letra L."),
+            ("Montpellier", "Verde y blanco. Ej: T4. &nbsp;<span style='display:inline-block;width:12px;height:12px;background:#fff;border:1px solid #ccc;border-radius:2px;vertical-align:middle'></span><span style='display:inline-block;width:12px;height:12px;background:#2ecc71;border-radius:2px;vertical-align:middle;margin-left:2px'></span>"),
+            ("Glaxo Smith (GSK)", "Levotiroxinas con muchos colores. Se encuentran en la letra L. &nbsp;<span style='display:inline-block;width:12px;height:12px;background:#e74c3c;border-radius:2px;vertical-align:middle'></span><span style='display:inline-block;width:12px;height:12px;background:#3498db;border-radius:2px;vertical-align:middle;margin-left:2px'></span><span style='display:inline-block;width:12px;height:12px;background:#f1c40f;border-radius:2px;vertical-align:middle;margin-left:2px'></span><span style='display:inline-block;width:12px;height:12px;background:#2ecc71;border-radius:2px;vertical-align:middle;margin-left:2px'></span>"),
             ("Roemmers", "Amarillo. Ej: Amoxidal. &nbsp;<span style='display:inline-block;width:12px;height:12px;background:#f1c40f;border-radius:2px;vertical-align:middle'></span>"),
-            ("Elea", "Blanco y azul claro. Ej: Cronopen."),
-            ("Raffo", "Blanco y bordo. Ej: Alpertan."),
+            ("Elea", "Blanco y azul claro. Ej: Cronopen. &nbsp;<span style='display:inline-block;width:12px;height:12px;background:#fff;border:1px solid #ccc;border-radius:2px;vertical-align:middle'></span><span style='display:inline-block;width:12px;height:12px;background:#85c1e9;border-radius:2px;vertical-align:middle;margin-left:2px'></span>"),
+            ("Raffo", "Blanco y bordo. Ej: Alpertan. &nbsp;<span style='display:inline-block;width:12px;height:12px;background:#fff;border:1px solid #ccc;border-radius:2px;vertical-align:middle'></span><span style='display:inline-block;width:12px;height:12px;background:#922b21;border-radius:2px;vertical-align:middle;margin-left:2px'></span>"),
             ("Casasco", "Blanco y rojo. Ej: Isobloc. &nbsp;<span style='display:inline-block;width:12px;height:12px;background:#fff;border:1px solid #ccc;border-radius:2px;vertical-align:middle'></span><span style='display:inline-block;width:12px;height:12px;background:#c0392b;border-radius:2px;vertical-align:middle;margin-left:2px'></span>"),
-            ("Pfizer", "Blanco con franja azul y celeste. Ej: Trapax."),
-            ("Lepetit", "Blanco, naranja y verde. Ej: Vedilep, Normolipol, Rosux."),
-            ("Craveri", "Rojo."),
-            ("Bagó", "Violeta."),
+            ("Pfizer", "Blanco con franja azul y celeste. Ej: Trapax. &nbsp;<span style='display:inline-block;width:12px;height:12px;background:#fff;border:1px solid #ccc;border-radius:2px;vertical-align:middle'></span><span style='display:inline-block;width:12px;height:12px;background:#2e86c1;border-radius:2px;vertical-align:middle;margin-left:2px'></span><span style='display:inline-block;width:12px;height:12px;background:#85c1e9;border-radius:2px;vertical-align:middle;margin-left:2px'></span>"),
+            ("Lepetit", "Blanco, naranja y verde. Ej: Vedilep, Normolipol, Rosux. &nbsp;<span style='display:inline-block;width:12px;height:12px;background:#fff;border:1px solid #ccc;border-radius:2px;vertical-align:middle'></span><span style='display:inline-block;width:12px;height:12px;background:#e67e22;border-radius:2px;vertical-align:middle;margin-left:2px'></span><span style='display:inline-block;width:12px;height:12px;background:#27ae60;border-radius:2px;vertical-align:middle;margin-left:2px'></span>"),
+            ("Craveri", "Rojo. &nbsp;<span style='display:inline-block;width:12px;height:12px;background:#e74c3c;border-radius:2px;vertical-align:middle'></span>"),
+            ("Bagó", "Violeta. &nbsp;<span style='display:inline-block;width:12px;height:12px;background:#8e44ad;border-radius:2px;vertical-align:middle'></span>"),
         ]
     },
     "🗄️ Ubicación en farmacia": {
