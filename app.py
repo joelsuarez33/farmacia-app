@@ -286,10 +286,10 @@ OS_DATA = {
         "items": [
             ("Montpellier", "Verde y blanco. Ej: T4."),
             ("Glaxo Smith (GSK)", "Levotiroxinas con muchos colores. Se encuentran en la letra L."),
-            ("Roemmers", "Amarillo. Ej: Amoxidal."),
+            ("Roemmers", "Amarillo. Ej: Amoxidal. &nbsp;<span style='display:inline-block;width:12px;height:12px;background:#f1c40f;border-radius:2px;vertical-align:middle'></span>"),
             ("Elea", "Blanco y azul claro. Ej: Cronopen."),
             ("Raffo", "Blanco y bordo. Ej: Alpertan."),
-            ("Casasco", "Blanco y rojo. Ej: Isobloc."),
+            ("Casasco", "Blanco y rojo. Ej: Isobloc. &nbsp;<span style='display:inline-block;width:12px;height:12px;background:#fff;border:1px solid #ccc;border-radius:2px;vertical-align:middle'></span><span style='display:inline-block;width:12px;height:12px;background:#c0392b;border-radius:2px;vertical-align:middle;margin-left:2px'></span>"),
             ("Pfizer", "Blanco con franja azul y celeste. Ej: Trapax."),
             ("Lepetit", "Blanco, naranja y verde. Ej: Vedilep, Normolipol, Rosux."),
             ("Craveri", "Rojo."),
@@ -301,6 +301,11 @@ OS_DATA = {
         "items": [
             ("Psicotrópicos", "Cajoneras del lado izquierdo, ordenadas alfabéticamente. La caja debe decir 'Venta bajo receta archivada'."),
             ("Oftálmicos", "Primeras 3 cajoneras en la columna de la V."),
+        ]
+    },
+    "🟠 Medicamentos con + naranja": {
+        "icono": "🟠",
+        "items": [
             ("Medicamentos con + naranja", "Tienen vademécum TUF o descuento de laboratorio aplicable."),
         ]
     },
