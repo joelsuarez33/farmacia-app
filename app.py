@@ -188,7 +188,7 @@ def render_drug_card(row: pd.Series):
 # ── UI principal ─────────────────────────────────────────────────────────────
 st.title("💊 Guía de Mostrador")
 
-tab1, tab2 = st.tabs(["Vademécum", "Manual de dispensa"])
+tab1, tab2, tab3 = st.tabs(["Vademécum", "Manual de Dispensa", "Obras Sociales"])
 
 # ════════════════════════════════════════════════════════════════════════════
 # TAB 1 — VADEMÉCUM
@@ -388,7 +388,40 @@ OS_DATA = {
         ]
     },    
 }
- 
+OBRAS_SOCIALES_DATA = {
+    "OSDE": [
+        ("Receta electrónica", "Por reservorio: cargar número de afiliado del paciente, seleccionar la receta requerida, el medicamento y validar usando el número de token. Sacar troquel y el paciente debe completar todos los datos."),
+        ("Receta papel", "Agregar cobertura, validar con número de token. Prestar atención a que la receta no esté enmendada, y verificar fecha, mg y cantidad de comprimidos del medicamento."),
+    ],
+    "Swiss Medical": [
+        ("Receta electrónica", "Por reservorio: cargar número de receta y número de afiliado, validar con el número de token. Si no sale el OPF, no sacar el troquel y solo entregar al paciente. <br><b>Salvo coseguro:</b> en ese caso, imprimir el OPF, pegar el troquel y sacar fotocopia para adjuntar al coseguro."),
+        ("Receta papel", "Validar con número de token, sacar el troquel y el paciente debe firmar el OPF y la receta."),
+    ],
+    "Galeno": [
+        ("Receta electrónica", "Por reservorio: cargar número de receta y afiliado, validar con número de token. Sacar troquel y el paciente debe completar todos los datos."),
+    ],
+    "OBSBA": [
+        ("Procedimiento", "Buscar por Agregar cobertura. Importante: la receta debe decir OBSBA. Si la receta es digital, imprimirla y cargar los datos en el PVF. En recetas manuscritas, el número de receta va como 000."),
+    ],
+    "UP - Accord Salud": [
+        ("Procedimiento", "Se carga por Agregar cobertura según el plan del paciente: abierto o cerrado. <br>En planes cerrados, la receta debe ser de una institución de la OS o el médico debe estar en cartilla.<br>Número de receta: completar como 000 si la institución no está detallada en el PVF.<br>Número de afiliado: cargar sin los 00 de adelante y sin el último número.<br>Se debe imprimir la receta."),
+    ],
+    "Sancor Salud": [
+        ("Procedimiento", "Se carga por Agregar cobertura. <b>OJO:</b> si son anticonceptivos, cargar por 'Sancor Salud / ACO'. No cargar los ceros de adelante del número de afiliado. Se debe imprimir la receta."),
+    ],
+    "CEMIC": [
+        ("Procedimiento", "Cargar por Agregar cobertura. Si no tiene plan particular, es CEMIC 40%. Cargar los datos según se piden en el PVF. <b>OJO:</b> si el número de receta no empieza con 9, cargar como número 999. Imprimir la receta."),
+    ],
+    "PAMI": [
+        ("Recetas en sistema", "La mayoría de los pacientes tiene las recetas cargadas en el sistema. Buscar PAMI en reservorio, seleccionar la receta y los medicamentos. <b>SIEMPRE</b> pedir el número de token — valida igual sin él, pero si lo tiene, ponerlo."),
+        ("Consultar descuentos", "Ver en la página de Prestadores PAMI, cargando el número de afiliado."),
+        ("Recetas manuscritas", "Solo son válidas las escritas en el recetario AZUL."),
+    ],
+    "Medicus / Medife": [
+        ("Receta electrónica", "Por reservorio. No pide token."),
+    ],
+}
+
 with tab2:
     st.markdown("### 📋 Procedimientos operativos")
  
@@ -424,3 +457,27 @@ with tab2:
                 mime="application/pdf",
                 use_container_width=True,
             )
+# ════════════════════════════════════════════════════════════════════════════
+# TAB 3 — OBRAS SOCIALES (procedimiento por OS)
+# ════════════════════════════════════════════════════════════════════════════
+with tab3:
+    st.markdown("### 🏥 Procedimiento por Obra Social")
+
+    for os_nombre, items in OBRAS_SOCIALES_DATA.items():
+        with st.expander(os_nombre):
+            for nombre, detalle in items:
+                st.markdown(
+                    f"""
+                    <div style="
+                        border-left: 3px solid #3b82f6;
+                        padding: 8px 12px;
+                        margin-bottom: 10px;
+                        border-radius: 0 8px 8px 0;
+                        background: var(--background-color);
+                    ">
+                        <div style="font-weight: 600; font-size: 0.9rem; margin-bottom: 3px;">{nombre}</div>
+                        <div style="font-size: 0.85rem; color: #555; line-height: 1.5;">{detalle}</div>
+                    </div>
+                    """,
+                    unsafe_allow_html=True
+                )
