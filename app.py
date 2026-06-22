@@ -8,7 +8,7 @@ st.set_page_config(
     page_title="Guía Farmacia",
     page_icon="💊",
     layout="centered",
-    initial_sidebar_state="collapsed",
+    initial_sidebar_state="collapsed",f
 )
 
 # ── CSS mobile-first ─────────────────────────────────────────────────────────
@@ -355,6 +355,7 @@ OS_DATA = {
             ("¿Cómo aplicar?", "Punto de venta → Agregar cobertura → buscar el laboratorio. Ej: PANALAB."),
             ("Panalab — 40% descuento", "Cajas blancas con rayas de color. Ej: Folcres, Valcatil Max, Dutapil, Combinater, Terekol, Ribatra. El paciente puede traer cupón o no. Si trae cupon → Cargar: descuento Panalab papel → escanear cupón + matrícula + fecha. Si no trae cupon → Copiar el número que empieza con 5... y como numero de matricula 5555 y colocar fecha del dia de dispensa. No sacar troquel."),
             ("Cepage / Eximia", "Productos de cosmética en el mueble detrás del mostrador. Agregar cobertura → descuento bono Eximia/Cepage → OK → escanear → sacar troquel → imprimir voucher. Enviar voucher por WhatsApp al 1141610510 o al celular viejo: 1144499024."),
+            ("Cassara", "Hay dos tipos de descuento de este laboratorio. <br><b>1) Bono Dermo:</b> el paciente lo trae en el celular. En el PVF se carga como 'Descuento Cassara Bono Dermo', se escanea el voucher y se saca el troquel. No es necesario imprimir el voucher. <br><b>2) Cupón:</b> el paciente trae un cupón en papel con descuento del 25% o 40%. En el PVF se carga como 'Descuento Cassara Cupón', se saca el troquel y se guarda el cupón."),
         ]
     },
     "💊 Vale Salud": {
