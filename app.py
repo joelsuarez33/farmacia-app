@@ -279,6 +279,7 @@ OS_DATA = {
             ("D — Vale", "Producto reservado, ya pagado. Retirar con número de vale."),
             ("R — Reserva", "Producto apartado para el cliente."),
             ("G — Servicio de salud", "Enfermería, diabetes, oximetría, etc."),
+            ("F — Retiro de medicamentos", "Ya abonados, por la WEB."),            
         ]
     },
     "🧪 Laboratorios y colores": {
@@ -361,6 +362,13 @@ OS_DATA = {
         "items": [
             ("¿Cómo facturar?", "Por el punto de venta de farmacia."),
             ("Servicios disponibles", "Presión arterial / Servicio de diabetes (con o sin insumos) / Aplicación / Oximetría / Índice de masa corporal / Asesoramiento en nebulizadores."),
+        ]
+    },
+    "📖 Vademécum Farmacéutico": {
+        "icono": "📖",
+        "items": [
+            ("¿Qué es?", "Un PDF que se descarga desde el mail de la farmacia, sección Vademécum."),
+            ("¿Qué información da?", "Todos los medicamentos con la cobertura y precios de PAMI e IOMA."),
         ]
     },
 }
