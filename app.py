@@ -8,7 +8,7 @@ st.set_page_config(
     page_title="Guía Farmacia",
     page_icon="💊",
     layout="centered",
-    initial_sidebar_state="collapsed",f
+    initial_sidebar_state="collapsed",
 )
 
 # ── CSS mobile-first ─────────────────────────────────────────────────────────
