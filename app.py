@@ -357,6 +357,15 @@ OS_DATA = {
             ("Cepage / Eximia", "Productos de cosmética en el mueble detrás del mostrador. Agregar cobertura → descuento bono Eximia/Cepage → OK → escanear → sacar troquel → imprimir voucher. Enviar voucher por WhatsApp al 1141610510 o al celular viejo: 1144499024."),
         ]
     },
+    "💊 Vale Salud": {
+        "icono": "💊",
+        "items": [
+            ("¿Qué es?", "Descuento del gobierno para medicamentos que ya no cubren las obras sociales. Entre los más comunes: los prazoles (Esomeprazol, Pantoprazol, Lanzoprazol) y algunos analgésicos."),
+            ("¿Cómo se carga?", "Desde la página 'Mis Validaciones': completar DNI del paciente, fecha del día, y escanear el medicamento."),
+            ("¿Cómo se aplica en PVF?", "Agregar cobertura → Vale Salud → escanear el código de barra del voucher obtenido en Mis Validaciones."),
+            ("⚠️ Ojo", "Hay descuentos del 20% y del 40%. Verificar cuál corresponde antes de aplicar."),
+        ]
+    },
     "🩺 Servicio de enfermería": {
         "icono": "🩺",
         "items": [
