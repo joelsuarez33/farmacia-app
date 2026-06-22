@@ -371,6 +371,12 @@ OS_DATA = {
             ("¿Qué información da?", "Todos los medicamentos con la cobertura y precios de PAMI e IOMA."),
         ]
     },
+    "🛒 Compra online ONE VISION": {
+        "icono": "🛒",
+        "items": [
+            ("¿Qué es?", "El paciente puede comprar desde la página web medicamentos con receta electrónica, tanto de obras sociales como particulares."),
+        ]
+    },    
 }
  
 with tab2:
